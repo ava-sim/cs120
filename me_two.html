@@ -8,14 +8,82 @@
 
 <style>
 
+ body {
+      font-family: 'Rubik', sans-serif;
+    }
+
 h1, h2 {
     color: navy;
     font-size: 40px;
     margin-bottom: 30px;
 }
- body {
-      font-family: 'Rubik', sans-serif;
+
+ul {
+        border: 2px solid black;
+}
+
+.food-section {
+  display: flex;
+  gap: 20px; 
+  align-items: center; 
+  flex-wrap: wrap;
+}
+ 
+.food-image {
+      background-image: url('images/koreanfood.jpg');
+      background-size: cover;
+      background-position-x: 50%;
+      background-position-y: 50%;
+      height: 300px;
+      width: 40%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+
+      flex: 1 1 300px;
     }
+
+.food-text {
+  width: 100%;
+  flex: 1 1 300px;
+  padding: 20px;
+}
+
+.table-pink {
+        background-color: #f5bfd1;
+}    
+
+.guest-form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-row {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.form-row label {
+  width: 100px;
+  text-align: right;
+  padding-right: 12px;
+  line-height: 2;
+}
+
+.form-row input,
+.form-row select {
+  flex: 1;
+  padding: 6px;
+}
+
+.icons {
+  position: absolute;
+  top: 100px;
+  right: 35px;
+  display: flex;
+  gap: 10px;
+}
 
 .row {
   display: flex;
@@ -46,35 +114,20 @@ table {
 
 
 <body>
-    <p>
-Put a border around your list and center it on the page (note:  do NOT center the list items) 
-Display your favorite food image in a div using a background image.  Place the explanatory text in a div that is adjacent to it.
-Add a background color to alternate lines in the table
-Create a form to let visitors sign a "guest book" - get the  get a user's first and last name, email, city and state. Use a select element to 
-choose the state (5-6 states in your area is sufficient). Labels for form elements should be in a label tag.  Labels should be in their own column 
-and form elements should be in a column to the right of the labels,  All labels should be right aligned.
-Add icons for Facebook and Twitter (X) to the page that are in a fixed position of 100px from the top and 35px in from the right corner of the page
-The site should be responsive down to 600px
-</p>
   <h1>Ava Sim</h1>
   <h2>My most recent trip</h2>
+
+<div class="icons">
+ <img src='images/facebook.png' width="50px" height="50px">
+<img src='images/X_icon_black.svg' width="50px" height="50px">
+</div>
+
   <p>This past semester I studied abroad in Hong Kong. I attended the University of Hong Kong;
     I also spend a lot of time traveling around Asia and went to the Phillipines, Thailand,
     Vietnam, Beijing, Shanghai, and South Korea. I had an amazing time and learned a lot about 
     Hong Kong culture and food! In two weeks I will also be heading to Croatia and it will be my 
     first time in Europe. Let me know if you have a recs! </p>
-    <p> Here are some photos! </p>
-    <div class="row">
-      <div class="column">
-        <img src='/images/hk1.jpeg' width="400px">
-      </div>
-      <div class="column">
-        <img src='/images/hk2.jpeg' width="400px">
-      </div>
-      <div class="column">
-        <img src='/images/hk3.jpeg' width="400px" height="300px">
-      </div>
-    </div>
+
   </br>
   <h2> 3 Favorite Pets Names </h2>
   <ul>
@@ -89,16 +142,56 @@ The site should be responsive down to 600px
   dan dan dumpling, and tuna rice crackers. The service is very good and it's close to city hall. </p>
   </br>
   <h2> Favorite Food </h2>
-  <div class="row"> 
-    <div class="column">
-      <img src='/images/koreanfood.jpg' width="500px">
-    </div>
-    <div class="column">
-      One of my favorite foods is a Korean food called galbi. It's beef short ribs and marinated in a sauce and then barbecued. I usually eat it alongside 
-      rice and kimchi. Sometimes I wrap it in letucce and add a spicy sauce. 
-    </div>
+  <div class="food-section">
+        <div class="food-image"></div>
+        <div class="food-text">
+        One of my favorite foods is a Korean food called galbi. It's beef short ribs and marinated in a sauce and then barbecued. I usually eat it alongside 
+        rice and kimchi. Sometimes I wrap it in letucce and add a spicy sauce. 
+        </div>
   </div>
   </br>
+
+
+<h2>Guest Book</h2>
+<form class="guest-form">
+  <div class="form-row">
+    <label for="first-name">First Name:</label>
+    <input type="text" id="first-name" name="first-name" required>
+  </div>
+
+  <div class="form-row">
+    <label for="last-name">Last Name:</label>
+    <input type="text" id="last-name" name="last-name" required>
+  </div>
+
+  <div class="form-row">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+  </div>
+
+  <div class="form-row">
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" required>
+  </div>
+
+  <div class="form-row">
+    <label for="state">State:</label>
+    <select id="state" name="state" required>
+      <option value="">Select a state</option>
+      <option value="PA">Pennsylvania</option>
+      <option value="MA">Massachusetts</option>
+      <option value="CT">Connecticut</option>
+      <option value="NJ">New Jersey</option>
+      <option value="NY">New York</option>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label></label>
+    <button type="submit">Submit</button>
+  </div>
+</form>
+
   <h2> Favorite Books </h2>
   <table id="books">
   <tr>
@@ -107,9 +200,9 @@ The site should be responsive down to 600px
     <th>Author</th>
     <th>Summary</th>
   </tr>
-  <tr>
+  <tr class="table-pink">
     <td>Catching Fire</td>
-    <td><img src='/images/catchingfire.jpg' width="200px"></td>
+    <td><img src='images/catchingfire.jpg' width="200px"></td>
     <td>Suzanne Collins</td>
     <td>This is the second book in The Hunger Games trilogy. It is action packed and the movie adaption is also my favorite out of the series.
       Katniss Everdeen and Peeta Mallark are forced back into the games in the 75th annual games.
@@ -117,15 +210,15 @@ The site should be responsive down to 600px
   </tr>
   <tr>
    <td>Klara and the Sun</td>
-    <td><img src='/images/klara.jpg' width="200px"></td>
+    <td><img src='images/klara.jpg' width="200px"></td>
     <td>Kazuo Ishiguro</td>
     <td> It is a dystopian science fiction story. Set in the U.S. in an unspecified future, the book is told from the point of view of Klara, 
       a solar-powered AF, who is chosen by Josie, a sickly child, to be her companion.
     </td>
   </tr>
-  <tr>
+  <tr class="table-pink">
     <td>Blood of Olympus</td>
-    <td><img src='/images/bloodofolympus.jpg' width="200px"></td>
+    <td><img src='images/bloodofolympus.jpg' width="200px"></td>
     <td>Rick Riordan</td>
     <td> This is the final book of the second series of the Percy Jackson series. It is a final battle with all of the main characters as they 
       fight against earth herself.
@@ -133,7 +226,7 @@ The site should be responsive down to 600px
   </tr>
     <tr>
     <td>Sunrise on the Reaping</td>
-    <td><img src='/images/sunrise.jpg' width="200px"></td>
+    <td><img src='images/sunrise.jpg' width="200px"></td>
     <td>Suzanne Collins</td>
     <td> This is the second book of the second series of The Hunger Games series. I am currently reading it and I'm halfway through. It follows
       the 50th games and is told in the point of view of Haymitch Abernarthy.
