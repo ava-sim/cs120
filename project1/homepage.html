@@ -30,6 +30,9 @@
       background-repeat: no-repeat;
       background-attachment: fixed;
       font-family: "Barrio", cursive;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .mission-statement {
@@ -76,55 +79,97 @@
       margin-top: 50px;
       margin-bottom: 50px;
     }
+
+    .cover-text {
+      color: white;
+      font-size: 150px;
+      text-align: center;
+    }
+
+    @media (max-width: 650px) {
+      .cover-image {
+        height: 250px;
+      }
+      .cover-text {
+        font-size: 50px;
+        text-align: center;
+      }
+
+      .upcomingshow img {
+        width: 100%;
+        height: auto;
+      }
+      .about_section {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .group-text {
+        flex: 0;
+        width: 80%;
+        padding: 0px;
+      }
+
+      .group-image {
+        width: 80%;
+        height: 250px;
+        background-position: center;
+        margin: 0;
+      }
+    }
   </style>
 
   <body>
     <header>
       <nav>
         <ul class="nav-bar">
-          <li class="left"><a href="https://ava-sim.github.io/120/project1/homepage.html">Home</a></li>
-          <div class="right-links">
-            <li><a href="https://ava-sim.github.io/120/project1/about_us.html">About Us</a></li>
-            <li><a href="https://ava-sim.github.io/120/project1/song_list.html">Songs List</a></li>
-            <li><a href="https://ava-sim.github.io/120/project1/contact_us.html">Contact Us</a></li>
-          </div>
+          <li class="left">
+            <a href="https://ava-sim.github.io/120/project1/homepage.html"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a href="https://ava-sim.github.io/120/project1/about_us.html"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a href="https://ava-sim.github.io/120/project1/song_list.html"
+              >Songs List</a
+            >
+          </li>
+          <li>
+            <a href="https://ava-sim.github.io/120/project1/contact_us.html"
+              >Contact Us</a
+            >
+          </li>
         </ul>
       </nav>
     </header>
-
-    <div class="cover-image">
-      <div>
-        <h1
-          style="
-            color: white;
-            font-size: 150px;
-            text-align: center;
-            padding-top: 100px;
-          "
-        >
-          weston estate
-        </h1>
+    <main>
+      <div class="cover-image">
+        <h1 class="cover-text">weston estate</h1>
       </div>
-    </div>
 
-    <div class="mission-statement">ya aunty's favorite boyband</div>
+      <div class="mission-statement">ya aunty's favorite boyband</div>
 
-    <div class="about_section">
-      <div class="group-image"></div>
-      <div class="group-text">
-        Weston Estate is a North Carolina based boyband consisting of 5 members.
-        The name Weston Estate comes from an affluent neighborhood that member
-        Tanu lived near. Self described as “ya aunty's favorite boyband.” Weston
-        Estate's music has spanned across multiple genres, from the hypnotic
-        lo-fi melodies on “Saturday Nights,” or the slow guitar ballad “Slowly,”
-        to the pop-centric “So Good.” In early 2022, the group released their
-        first project, “Maggie Valley.” Their newest project is called
-        "Superbloom".
+      <div class="about_section">
+        <div class="group-image"></div>
+        <div class="group-text">
+          Weston Estate is a North Carolina based boyband consisting of 5
+          members. The name Weston Estate comes from an affluent neighborhood
+          that member Tanu lived near. Self described as “ya aunty's favorite
+          boyband.” Weston Estate's music has spanned across multiple genres,
+          from the hypnotic lo-fi melodies on “Saturday Nights,” or the slow
+          guitar ballad “Slowly,” to the pop-centric “So Good.” In early 2022,
+          the group released their first project, “Maggie Valley.” Their newest
+          project is called "Superbloom".
+        </div>
       </div>
-    </div>
-    <div class="upcomingshow">
-      <img src="/images/upcomingshow.png" width="700px" />
-    </div>
+      <div class="upcomingshow">
+        <img src="/images/upcomingshow.png" width="700px" />
+      </div>
+    </main>
 
     <footer>© 2023 Weston Estate. All rights reserved.</footer>
   </body>

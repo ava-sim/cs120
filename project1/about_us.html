@@ -13,31 +13,204 @@
     rel="stylesheet"
   />
 
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barrio&family=Open+Sans&display=swap"
+    rel="stylesheet"
+  />
+
   <link rel="stylesheet" href="styles.css" />
 
   <style>
     body {
-      font-family: "Rubik", sans-serif;
+      font-family: "Open Sans", sans-serif;
       margin: 0;
     }
 
-    </style>
+    table {
+      width: 80%;
+      border-collapse: collapse;
+      margin: 0 auto;
+    }
 
-<body>
+    th,
+    td {
+      /* border: 1px solid black; */
+      padding: 20px;
+      vertical-align: top;
+      margin: 0 auto;
+    }
+
+    td:first-child,
+    th:first-child {
+      width: 30%;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    td:last-child,
+    th:last-child {
+      width: 70%;
+    }
+    .names {
+      font-weight: bold;
+      font-size: 40px;
+      font-family: "Barrio", cursive;
+    }
+
+    img {
+      display: flex;
+      border-radius: 20px;
+      width: 200px;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 650px) {
+      table,
+      tbody,
+      tr {
+        display: block;
+        width: 100%;
+      }
+
+      tr {
+        margin-bottom: 40px;
+        border-bottom: 1px solid #ccc;
+      }
+
+      td {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+      }
+
+      td:first-child {
+        margin-bottom: 16px;
+      }
+
+      .names {
+        font-size: 1.6em;
+      }
+    }
+  </style>
+
+  <body>
     <header>
-       <nav>
+      <nav>
         <ul class="nav-bar">
-          <li class="left"><a href="https://ava-sim.github.io/120/project1/homepage.html">Home</a></li>
-          <div class="right-links">
-            <li><a href="https://ava-sim.github.io/120/project1/about_us.html">About Us</a></li>
-            <li><a href="https://ava-sim.github.io/120/project1/song_list.html">Songs List</a></li>
-            <li><a href="https://ava-sim.github.io/120/project1/contact_us.html">Contact Us</a></li>
-          </div>
+          <li class="left">
+            <a href="https://ava-sim.github.io/120/project1/homepage.html"
+              >Home</a
+            >
+          </li>
+
+          <li>
+            <a href="https://ava-sim.github.io/120/project1/about_us.html"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a href="https://ava-sim.github.io/120/project1/song_list.html"
+              >Songs List</a
+            >
+          </li>
+          <li>
+            <a href="https://ava-sim.github.io/120/project1/contact_us.html"
+              >Contact Us</a
+            >
+          </li>
         </ul>
       </nav>
     </header>
 
-    <div>Our Team</div>
-    </body>
+    <div class="heading">Our Team</div>
 
-    </html>
+    <table>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <td>
+          <img src="/images/marco.png" alt="Marco Gomez" />
+        </td>
+        <td>
+          <div class="names">Marco Gomez</div>
+          <div style="margin-bottom: 20px">Vocalist</div>
+          <div>
+            Marco, also known as Marco Luka, is a vocalist in the band. Of
+            Cuban-American descent, he brings a unique cultural perspective to
+            Weston Estate's music. His solo endeavors and distinctive voice
+            contribute to the band's diverse soundscape.
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="/images/tamu.png" alt="Tanmay Joshi" />
+        </td>
+        <td>
+          <div class="names">Tanmay Joshi</div>
+          <div style="margin-bottom: 20px">Vocalist</div>
+          <div>
+            Tanmay is another vocalist in Weston Estate. He played a pivotal
+            role in naming the band, drawing inspiration from a neighborhood
+            called Weston Estates near his residence. His vocal style adds a
+            distinctive layer to the band's overall sound.
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="/images/manas.png" alt="Manas Panchavati" />
+        </td>
+        <td>
+          <div class="names">Manas Panchavati</div>
+          <div style="margin-bottom: 20px">Vocalist</div>
+          <div>
+            Manas serves as one of the vocalists for the band. He has been
+            instrumental in shaping the band's lyrical content, drawing
+            inspiration from personal experiences and emotions. His
+            contributions help infuse depth and relatability into their music.
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="/images/srikar.png" alt="Srikar Nanduri" />
+        </td>
+        <td>
+          <div class="names">Srikar Nanduri</div>
+          <div style="margin-bottom: 20px">Guitarist</div>
+          <div>
+            Srikar is the lead guitarist and a key songwriter for Weston Estate.
+            Growing up in Cary, North Carolina, he began his musical journey
+            with the violin before teaching himself guitar during middle school.
+            His diverse musical background contributes to the band's unique
+            sound.
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="/images/abhi.png" alt="Abhi Manhass" />
+        </td>
+        <td>
+          <div class="names">Abhi Manhass</div>
+          <div style="margin-bottom: 20px">Production</div>
+          <div>
+            Abhi handles the production and engineering aspects for Weston
+            Estate. His journey into music production began in high school when
+            he received FL Studio as a gift. Since then, he has been crafting
+            beats and overseeing the technical facets of the band's music.
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <footer>© 2023 Weston Estate. All rights reserved.</footer>
+  </body>
+</html>

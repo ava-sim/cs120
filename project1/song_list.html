@@ -1,43 +1,231 @@
 <html>
   <head>
     <title>Weston Estate Home Page</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barrio&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        font-family: "Rubik", sans-serif;
+        margin: 0;
+      }
+
+      .heading  {
+        padding-bottom: 40px;
+      }
+      
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        padding: 0 20px;
+      }
+
+      .column {
+        flex: 1;
+        min-width: 300px;
+      }
+      
+      .img-column {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      details {
+        border-bottom: 1px solid #ccc;
+        /* border: 1px solid #ccc; */
+        padding: 10px;
+        /* background-color: #fafafa; */
+        animation-duration: 1s;
+      }
+
+      details:first-child {
+        border-top: 1px solid #ccc;
+      }
+
+      summary {
+        font-size: 24px;
+        padding: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        outline: none;
+        list-style: none;
+        text-align: center;
+      }
+
+      .song-list {
+        list-style-type: disc;
+        padding-left: 40px;
+        margin-top: 10px;
+      }
+
+      .sub-song {
+        list-style-type: circle;
+        padding-left: 30px;
+        margin-top: 3px;
+      }
+    </style>
   </head>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
-    rel="stylesheet"
-  />
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Barrio&display=swap"
-    rel="stylesheet"
-  />
-
-  <link rel="stylesheet" href="styles.css" />
-
-  <style>
-    body {
-      font-family: "Rubik", sans-serif;
-      margin: 0;
-    }
-
-    </style>
-
-<body>
+  <body>
     <header>
-     <nav>
+      <nav>
         <ul class="nav-bar">
-          <li class="left"><a href="https://ava-sim.github.io/120/project1/homepage.html">Home</a></li>
-          <div class="right-links">
-            <li><a href="https://ava-sim.github.io/120/project1/about_us.html">About Us</a></li>
-            <li><a href="https://ava-sim.github.io/120/project1/song_list.html">Songs List</a></li>
-            <li><a href="https://ava-sim.github.io/120/project1/contact_us.html">Contact Us</a></li>
-          </div>
+          <li class="left">
+            <a href="https://ava-sim.github.io/120/project1/homepage.html"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a href="https://ava-sim.github.io/120/project1/about_us.html"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a href="https://ava-sim.github.io/120/project1/song_list.html"
+              >Songs List</a
+            >
+          </li>
+          <li>
+            <a href="https://ava-sim.github.io/120/project1/contact_us.html"
+              >Contact Us</a
+            >
+          </li>
         </ul>
       </nav>
     </header>
 
-    <div>Song Name</div>
-    </body>
+    <div class="heading">Song List</div>
+    <div class="row">
+      <div class="column">
+        <details>
+          <summary>2019</summary>
+          <ul class="song-list">
+            <li>Cotton Candy</li>
+            <li>Fresh Air</li>
+            <li>Hypnotized</li>
+            <li>
+              Lost
+              <ul class="sub-song">
+                <li>Frank Ocean - Cover Song</li>
+              </ul>
+            </li>
+          </ul>
+        </details>
 
-    </html>
+        <details>
+          <summary>2020</summary>
+          <ul class="song-list">
+            <li>Close The Door</li>
+            <li>Saturday Nights</li>
+            <li>
+              Cool About It
+              <ul class="sub-song">
+                <li>boygenius - Cover Song</li>
+              </ul>
+            </li>
+            <li>
+              Family Feud
+              <ul class="sub-song">
+                <li>FINNEAS - Cover Song</li>
+              </ul>
+            </li>
+          </ul>
+        </details>
+
+        <details>
+          <summary>2021</summary>
+          <ul class="song-list">
+            <li>Hold On</li>
+            <li>Pears</li>
+            <li>Outside</li>
+            <li>Stoked</li>
+          </ul>
+        </details>
+
+        <details>
+          <summary>2022</summary>
+          <ul class="song-list">
+            <li>
+              EP - Maggie Valley
+              <ul class="sub-song">
+                <li>Sixty</li>
+                <li>Pears</li>
+                <li>Stoked</li>
+                <li>Outside</li>
+                <li>Silence</li>
+                <li>Daisies</li>
+              </ul>
+            </li>
+            <li>So Good</li>
+            <li>Drown</li>
+          </ul>
+        </details>
+
+        <details>
+          <summary>2023</summary>
+          <ul class="song-list">
+            <li>Where Do We Go?</li>
+            <li>Slowly</li>
+            <li>
+              4Me 4ME
+              <ul class="sub-song">
+                <li>Malcolm Todd - Cover Song</li>
+              </ul>
+            </li>
+            <li>
+              I Want to Write You a Song
+              <ul class="sub-song">
+                <li>One Direction - Cover Song</li>
+              </ul>
+            </li>
+          </ul>
+        </details>
+
+        <details>
+          <summary>2024</summary>
+          <ul class="song-list">
+            <li>Petra</li>
+            <li>I Saw Something</li>
+            <li>Camouflage</li>
+          </ul>
+        </details>
+
+        <details>
+          <summary>2025</summary>
+          <ul class="song-list">
+            <li>GO!</li>
+            <li>
+              Album - Superbloom
+              <ul class="sub-song">
+                <li>I Saw Something</li>
+                <li>Camouflage</li>
+                <li>GO!</li>
+                <li>Pressure</li>
+                <li>Thinking Out Loud</li>
+                <li>Temerity</li>
+                <li>Stop Me</li>
+              </ul>
+            </li>
+          </ul>
+        </details>
+      </div>
+      <div class="column img-column">
+        <img
+          src="/images/songlistimg1.jpg"
+          width="100%"
+          style="border-radius: 12px"
+        />
+      </div>
+    </div>
+
+    <footer>© 2023 Weston Estate. All rights reserved.</footer>
+  </body>
+</html>
