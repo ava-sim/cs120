@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sim JS Problem 4</title>
+  </head>
+  <body>
+    <script>
+      let num1 = parseInt(prompt("Enter the first number:"));
+      let num2 = parseInt(prompt("Enter the second number:"));
+
+      let sum = 0;
+      if (!num1 || !num2) {
+        alert("Invalid input. Please enter valid numbers.");
+      } 
+      for (let i = num1; i <= num2; i++) {
+        if (i % 2 === 1) {
+          document.write("<p>" + i + "</p>");
+          sum += i;
+        }
+      }
+      document.write("<h2>Sum of odd numbers: " + sum + "</h2>");
+    </script>
+  </body>
+</html>

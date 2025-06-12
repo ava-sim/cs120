@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sim JS Problem 2</title>
+  </head>
+  <body>
+    <script>
+      let fahren = parseFloat(prompt("Enter a temperature in Fahrenheit:"));
+      if (!fahren) {
+        alert("Incorrect Input.");
+      } else {
+        let celsius = ((fahren - 32) * 5) / 9;
+
+        alert(
+          "The temperature " +
+            fahren +
+            "°F in Celsius is: " +
+            celsius.toFixed(2) +
+            "°C"
+        );
+      }
+
+      let cels = parseFloat(prompt("Enter a temperature in Celsius:"));
+      if (!cels) {
+        alert("Incorrect Input.");
+        throw new Error("Invalid input for Celsius temperature.");
+      } else {
+        let fahrenheit = (cels * 9) / 5 + 32;
+
+        alert(
+          "The temperature " +
+            cels +
+            "°C in Fahrenheit is: " +
+            fahrenheit.toFixed(2) +
+            "°F"
+        );
+      }
+    </script>
+  </body>
+</html>
