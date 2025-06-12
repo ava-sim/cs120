@@ -13,13 +13,20 @@
     <style>
       body {
         font-family: "Rubik", sans-serif;
+        height: 100%;
         margin: 0;
+        display: flex;
+        flex-direction: column;
       }
 
-      .heading  {
+      body > .row {
+        flex: 1;
+      }
+
+      .heading {
         padding-bottom: 40px;
       }
-      
+
       .row {
         display: flex;
         flex-wrap: wrap;
@@ -31,7 +38,7 @@
         flex: 1;
         min-width: 300px;
       }
-      
+
       .img-column {
         display: flex;
         align-items: center;
@@ -70,6 +77,23 @@
         list-style-type: circle;
         padding-left: 30px;
         margin-top: 3px;
+      }
+
+      @media (max-width: 650px) {
+        .row {
+          flex-direction: column;
+        }
+
+        .column {
+          width: 100%;
+        }
+
+        .img-column img {
+          width: 100%;
+          height: auto;
+          border-radius: 12px;
+          margin: 20px 0;
+        }
       }
     </style>
   </head>
