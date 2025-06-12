@@ -1,8 +1,7 @@
 <html>
   <head>
     <title>Weston Estate Home Page</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
   <link
@@ -18,14 +17,82 @@
   <link rel="stylesheet" href="styles.css" />
 
   <style>
+    html,
     body {
-      font-family: "Rubik", sans-serif;
+      height: 100%;
       margin: 0;
+      font-family: "Rubik", sans-serif;
     }
 
-    </style>
+    body {
+      display: flex;
+      flex-direction: column;
+    }
 
-<body>
+    .page-content {
+      flex: 1;
+    }
+
+    .form1 {
+      max-width: 600px;
+      margin: 60px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .form-row {
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    .form-row label {
+      width: 150px;
+      text-align: right;
+      padding-right: 12px;
+      line-height: 2;
+    }
+
+    .form-row input,
+    .form-row select {
+      flex: 1;
+      padding: 6px;
+    }
+
+    @media (max-width: 650px) {
+
+        
+      .form1 {
+        width: 80%;
+        margin: 40px auto;
+        align-items: stretch;
+      }
+
+      .form-row {
+        flex-direction: column;
+        align-items: stretch;
+        margin-bottom: 20px;
+      }
+
+      .form-row label {
+        text-align: left;
+        width: 100%;
+        margin-bottom: 6px;
+      }
+
+      .form-row input,
+      .form-row select {
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .form-row button {
+        align-self: center;
+      }
+    }
+  </style>
+
+  <body>
     <header>
       <nav>
         <ul class="nav-bar">
@@ -54,9 +121,69 @@
       </nav>
     </header>
 
-    <div>Contact Us</div>
-        <footer>© 2023 Weston Estate. All rights reserved.</footer>
+    <div class="page-content">
+      <div class="heading">Contact Us</div>
+      <div style="text-align: center; padding-top: 20px">
+        <p>
+          Book us here, only in select states! Please fill out the form below:
+        </p>
+      </div>
+      <form class="form1">
+        <div class="form-row">
+          <label for="first-name">First Name:</label>
+          <input type="text" id="first-name" name="first-name" required />
+        </div>
 
-    </body>
+        <div class="form-row">
+          <label for="last-name">Last Name:</label>
+          <input type="text" id="last-name" name="last-name" required />
+        </div>
 
-    </html>
+        <div class="form-row">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-row">
+          <label for="phone">Phone Number:</label>
+          <input type="phone" id="phone" name="phone" required />
+        </div>
+
+        <div class="form-row">
+          <label for="city">City:</label>
+          <input type="text" id="city" name="city" required />
+        </div>
+
+        <div class="form-row">
+          <label for="state">State:</label>
+          <select id="state" name="state" required>
+            <option value="">Select a state</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="MA">Massachusetts</option>
+            <option value="CT">Connecticut</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NY">New York</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label></label>
+          <button
+            type="submit"
+            style="
+              padding: 10px;
+              background-color: #0d1b2a;
+              color: white;
+              border-width: 0px;
+              border-radius: 5px;
+            "
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <footer>© 2025 Weston Estate. All rights reserved.</footer>
+  </body>
+</html>
