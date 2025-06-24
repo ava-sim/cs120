@@ -67,11 +67,11 @@
       function populateStateList() {
         stateList.innerHTML = "";
         states.forEach((state) => {
-          stateList.selectedIndex = 0;
           const option = document.createElement("option");
           option.textContent = state;
           stateList.appendChild(option);
         });
+        stateList.selectedIndex = 0;
       }
 
       populateStateList();

@@ -69,9 +69,11 @@
         const option = document.createElement("option");
         option.textContent = state;
         stateList.appendChild(option);
-
-        stateList.selectedIndex = 0;
       });
+
+      if (stateList.options.length > 0) {
+        stateList.selectedIndex = 0;
+      }
 
       document.getElementById("addButton").onclick = function () {
         const selectedState = stateList.value;

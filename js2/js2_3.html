@@ -8,16 +8,16 @@
   <body>
     <script>
       function addingList(value) {
-        text += "<li>" + value + "</li>";
+        listItems += "<li>" + value + "</li>";
       }
       const names = "Ava, Lucy, Milo, Render, Lucas";
       const nameArray = names.split(", ");
 
-      let text = "<ul>";
+      let listItems = "<ol>";
       nameArray.forEach(addingList);
-      text += "</ul>";
+      listItems += "</ol>";
 
-      document.write(text);
+      document.write(listItems);
     </script>
   </body>
 </html>
