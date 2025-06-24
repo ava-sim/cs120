@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sim JS 2 Problem 6</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    body {
+      font-family: "Rubik", sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    #selectedStates {
+      margin-top: 20px;
+    }
+  </style>
+  <body>
+    <select id="stateList" size="23"></select>
+    <input type="button" value="Add State" id="addButton" />
+
+    <div id="selectedStates"></div>
+    <br />
+    <input type="button" value="Clear States" id="clearButton" />
+    <script>
+      const states = [
+        "California",
+        "Colorado",
+        "Connecticut",
+        "Delaware",
+        "Florida",
+        "Georgia",
+        "Hawaii",
+        "Idaho",
+        "Maine",
+        "Maryland",
+        "Massachusetts",
+        "Michigan",
+        "New Hampshire",
+        "New Jersey",
+        "New Mexico",
+        "New York",
+        "North Carolina",
+        "Pennsylvania",
+        "Rhode Island",
+        "South Carolina",
+        "South Dakota",
+        "Tennessee",
+        "Texas",
+      ];
+
+      const stateList = document.getElementById("stateList");
+
+      states.forEach((state) => {
+        const option = document.createElement("option");
+        option.textContent = state;
+        stateList.appendChild(option);
+      });
+
+      document.getElementById("addButton").onclick = function () {
+        const selectedState = stateList.value;
+        if (selectedState) {
+          const div = document.createElement("div");
+          div.textContent = selectedState;
+          document.getElementById("selectedStates").appendChild(div);
+        }
+      };
+      document.getElementById("clearButton").onclick = function () {
+        document.getElementById("selectedStates").innerHTML = "";
+      };
+    </script>
+  </body>
+</html>
