@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sim JS 2 Problem 1</title>
+</head>
+  <body>
+    <script>
+        function count(Array, value) {
+            let count = 0;
+            for (let i = 0; i < Array.length; i++) {
+                if (Array[i] < value) {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        function testCount() {
+            const testArray = [1, 2, 3, 4, 5];
+            const value = 4;
+            const result = count(testArray, value);
+            document.write("<div>" + "Count of numbers less than " + value + ": " + result + "</div>");
+        }
+
+        testCount();
+    </script>
+  </body>
+</html>
