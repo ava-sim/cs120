@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sim JS 2 Problem 5</title>
+  </head>
+  <body>
+    <script>
+      function speak() {
+        const name = document.getElementById("name").value;
+        if (!name) {
+          alert("You must enter a name.");
+          return;
+        }
+        const prefix = this.value;
+        alert(`${prefix} ${name}`);
+      }
+
+      window.onload = function () {
+        document.getElementById("hello").onclick = speak;
+        document.getElementById("goodbye").onclick = speak;
+        document.getElementById("greetings").onclick = speak;
+      };
+    </script>
+
+    <form>
+      <label for="name">Enter a name:</label>
+      <input type="text" id="name" name="name" />
+      <button type="button" id="hello" value="Hello">Hello</button>
+      <button type="button" id="goodbye" value="Good Bye">Good Bye</button>
+      <button type="button" id="greetings" value="Greetings">Greetings</button>
+    </form>
+  </body>
+</html>
