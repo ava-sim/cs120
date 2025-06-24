@@ -8,32 +8,30 @@
       href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
       rel="stylesheet"
     />
+    <style>
+      body {
+        font-family: "Rubik", sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+
+      input[type="button"] {
+        margin-top: 10px;
+        padding: 5px 10px;
+        font-size: 16px;
+        background-color: navy;
+        color: white;
+        border: none;
+        border-radius: 10px;
+      }
+    </style>
   </head>
-  <style>
-    body {
-      font-family: "Rubik", sans-serif;
-      margin: 0;
-      padding: 20px;
-    }
-
-    .selectedStates {
-      margin-top: 20px;
-    }
-
-    input[type="button"] {
-      margin-top: 10px;
-      padding: 5px 10px;
-      font-size: 16px;
-      background-color: navy;
-      color: white;
-      border: none;
-      border-radius: 10px;
-    }
-  </style>
   <body>
     <select id="stateList" size="23"></select>
     <input type="button" value="Add State" id="addButton" />
-    <div id="selectedStates"></div>
+    <div id="selectedStates" class="selectedStates">
+      <ol id="stateOutput"></ol>
+    </div>
     <input type="button" value="Clear States" id="clearButton" />
 
     <script>
@@ -64,25 +62,36 @@
       ];
 
       const stateList = document.getElementById("stateList");
+      const stateOutput = document.getElementById("stateOutput");
 
-      states.forEach((state) => {
-        const option = document.createElement("option");
-        option.textContent = state;
-        stateList.appendChild(option);
+      function populateStateList() {
+        stateList.innerHTML = "";
+        states.forEach((state) => {
+          stateList.selectedIndex = 0;
+          const option = document.createElement("option");
+          option.textContent = state;
+          stateList.appendChild(option);
+        });
+      }
 
-        stateList.selectedIndex = 0;
-      });
+      populateStateList();
 
       document.getElementById("addButton").onclick = function () {
-        const selectedState = stateList.value;
-        if (selectedState) {
-          const div = document.createElement("div");
-          div.textContent = selectedState;
-          document.getElementById("selectedStates").appendChild(div);
+        const selectedIndex = stateList.selectedIndex;
+        if (selectedIndex !== -1) {
+          const selectedState = stateList.options[selectedIndex].text;
+
+          const li = document.createElement("li");
+          li.textContent = selectedState;
+          stateOutput.appendChild(li);
+
+          stateList.remove(selectedIndex);
         }
       };
+
       document.getElementById("clearButton").onclick = function () {
-        document.getElementById("selectedStates").innerHTML = "";
+        stateOutput.innerHTML = "";
+        populateStateList();
       };
     </script>
   </body>
