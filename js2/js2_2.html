@@ -8,8 +8,12 @@
   <body>
     <script>
       let sentence = String(prompt("Please enter a full sentence:"));
+        if (!sentence) {
+          alert("You must enter a sentence.");
+          throw new Error("No sentence provided.");
+        }
       let words = sentence.split(" ");
-      document.write("<h2>Words in the sentence: " + words.length() + "</h2>");
+      document.write("<h2>Words in the sentence: " + words.length + "</h2>");
     </script>
   </body>
 </html>

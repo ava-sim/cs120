@@ -3,13 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sim JS 2 Problem 2</title>
+    <title>Sim JS 2 Problem 3</title>
   </head>
   <body>
     <script>
-      let sentence = String(prompt("Please enter a full sentence:"));
-      let words = sentence.split(" ");
-      document.write("<h2>Words in the sentence: " + words.length + "</h2>");
+      function addingList(value) {
+        text += "<li>" + value + "</li>";
+      }
+      const names = ["Ava", "Lucy", "Milo", "Render", "Lucas"];
+      const nameArray = names.split(", ");
+
+      let text = "<ul>";
+      nameArray.forEach(addingList);
+      text += "</ul>";
+
+      document.write(text);
     </script>
   </body>
 </html>
