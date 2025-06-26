@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sim jQuery Assignment</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barrio&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    body {
+      font-family: "Barrio", cursive;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 40px;
+    }
+
+    .thumbnails {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .thumbnail {
+      width: 220px;
+      height: 150px;
+      background-size: cover;
+      border-radius: 5px;
+    }
+
+    .large-image {
+      width: 300px;
+      height: 300px;
+      background-size: cover;
+      display: block;
+      margin: 0 auto;
+      padding-top: 20px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .gallery-info {
+      text-align: left;
+      padding-top: 30px;
+    }
+
+    .gallery-name {
+      font-size: 50px;
+    }
+
+    .gallery-price {
+      font-size: 30px;
+    }
+  </style>
+  <body>
+    <h1>Ava's Gallery</h1>
+
+    <div class="thumbnails"></div>
+
+    <div class="large-image"></div>
+    <div class="gallery-info">
+      <h2 class="gallery-name"></h2>
+      <p class="gallery-price"></p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        galleryItems.forEach((item, index) => {
+          $(".thumbnails").append(
+            `<div class="thumbnail" data-index="${index}" style="background-image: url('${item.thumbnail_image}');"></div>`
+          );
+        });
+      });
+
+      $(document).ready(function () {
+        $(".thumbnail").hover(function () {
+          let index = $(this).data("index");
+          let item = galleryItems[index];
+
+          $(".large-image")
+            .hide()
+            .html(`<img src="${item.large_image}" style="width: 500px;">`)
+            .fadeIn(800);
+        });
+      });
+
+      $(document).ready(function () {
+        $(".thumbnail").click(function () {
+          let index = $(this).data("index");
+          let item = galleryItems[index];
+
+          $(".gallery-name").text(item.name);
+          $(".gallery-price").text(item.price);
+          $(".gallery-info").stop(true, true).fadeIn();
+
+          setTimeout(() => {
+            $(".gallery-info").fadeOut();
+          }, 1600);
+        });
+      });
+
+      function GalleryItems(name, price, thumbnail_image, large_image) {
+        this.name = name;
+        this.price = price;
+        this.thumbnail_image = thumbnail_image;
+        this.large_image = large_image;
+      }
+
+      const galleryItems = [
+        new GalleryItems(
+          "Cows",
+          "$100.00",
+          "../images/cow.jpeg",
+          "../images/cow.jpeg"
+        ),
+        new GalleryItems(
+          "Wave",
+          "$200.00",
+          "../images/wave.jpeg",
+          "../images/wave.jpeg"
+        ),
+        new GalleryItems(
+          "Pedro Pascal",
+          "$300.00",
+          "../images/pedro.jpeg",
+          "../images/pedro.jpeg"
+        ),
+        new GalleryItems(
+          "The Birth of Venus",
+          "$500.00",
+          "../images/prima.jpeg",
+          "../images/prima.jpeg"
+        ),
+        new GalleryItems(
+          "A Sunday Afternoon on the Island of La Grande Jatte",
+          "$750.00",
+          "../images/park.jpg",
+          "../images/park.jpg"
+        ),
+      ];
+    </script>
+  </body>
+</html>
