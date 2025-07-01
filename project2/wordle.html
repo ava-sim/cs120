@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ava's Wordle</title>
+  </head>
+  <link rel="stylesheet" href="styles.css" />
+
+  <body>
+    <h1>Ava's Wordle</h1>
+    <div class="container">
+      <div class="word_box"></div>
+      <div class="guess_area">
+        <div class="entry">
+          <input
+            type="text"
+            id="guessInput"
+            maxlength="5"
+            style="
+              width: 200px;
+              height: 50px;
+              background-color: #e0e0e0;
+              border-width: 0px;
+              border-radius: 5px;
+              font-size: 30px;
+              text-align: center;
+              text-transform: uppercase;
+            "
+          />
+          <button id="submitGuess">Submit Guess</button>
+          <button id="restartGame" style="display: none">Restart</button>
+        </div>
+        <div class="keyboard"></div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="wordle.js"></script>
+  </body>
+</html>
