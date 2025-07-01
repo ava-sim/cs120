@@ -103,7 +103,6 @@ function handleKeyboardInput(event) {
  *
  **********************************************************************/
 function handleInput(event) {
-  console.log("in input handler");
   const input = event.target;
   if (parseInt(input.dataset.row) !== currentRow) {
     input.value = "";
@@ -131,7 +130,6 @@ function handleInput(event) {
  *
  **********************************************************************/
 function handleKeyDown(event) {
-  console.log("in keydown handler");
   const input = event.target;
   const row = parseInt(input.dataset.row);
   const col = parseInt(input.dataset.col);
@@ -209,7 +207,7 @@ function submitCurrentRowGuess() {
       .toUpperCase();
     if (guessInputBox && guessInputBox.length === 5) {
       checkGuess(guessInputBox);
-      document.getElementById("guessInput").value = ""; // Clear input box after submission
+      document.getElementById("guessInput").value = "";
     } else {
       alert("Please fill all 5 letters before submitting.");
     }
@@ -236,6 +234,11 @@ function checkGuess(guess) {
 
   if (guess === answer) {
     wonGame();
+      const totalGames = getCookie("games");
+  const totalGuesses = getCookie("guesses");
+
+  setCookie("games", totalGames + 1);
+  setCookie("guesses", totalGuesses + (currentRow + 1));
     return;
   } else if (currentRow < ROWS - 1) {
     currentRow++;
@@ -243,6 +246,11 @@ function checkGuess(guess) {
   } else {
     alert(`Game Over! The word was ${answer}`);
     document.getElementById("restartGame").style.display = "block";
+      const totalGames = getCookie("games");
+  const totalGuesses = getCookie("guesses");
+
+  setCookie("games", totalGames + 1);
+  setCookie("guesses", totalGuesses + (currentRow + 1));
   }
 }
 
@@ -362,10 +370,18 @@ function resetGame() {
     .then((res) => res.json())
     .then((data) => {
       answer = data[0].toUpperCase();
-      console.log(`The answer is: ${answer}`);
     });
+  showStats();
 }
 
+/********** wonGame ***************************************************
+ *
+ * Handles the game-winning logic, disables further input.
+ *
+ * Parameters: None
+ * Return: None (void function)
+ *
+ **********************************************************************/
 async function wonGame() {
   const cells = Array.from(
     document.querySelectorAll(`.cell[data-row="${currentRow}"]`)
@@ -378,6 +394,75 @@ async function wonGame() {
   await new Promise((resolve) => setTimeout(resolve, 300));
   alert("Congratulations! You've guessed the word!");
 }
+
+
+/********** Cookie Management (EX) ************************************/
+
+
+/********** setCookie ************************************************
+ * 
+ * Sets a cookie with the specified name, value, and expiration days.
+ * 
+ * Parameters:
+ *  name - The name of the cookie.
+ *  value - The value of the cookie.
+ *  days - The number of days until the cookie expires.
+ * 
+ * Return: None (void function)
+ * 
+ * **********************************************************************/
+function setCookie(name, value, days) {
+  const date = new Date();
+  date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+  const expires = "expires=" + date.toUTCString();
+  document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+/********** getCookie ************************************************
+ * 
+ * Retrieves the value of a cookie by its name.
+ * 
+ * Parameters: name - The name of the cookie to retrieve.
+ * 
+ * Return: The value of the cookie as an integer, or 0 if not found.
+ * 
+ * **********************************************************************/
+function getCookie(name) {
+  const cookies = document.cookie.split("; ");
+  for (let cookie of cookies) {
+    const [key, value] = cookie.split("=");
+    if (key === name) {
+      return parseInt(value);
+    }
+  }
+  return 0;
+}
+
+
+/********** showStats *************************************************
+ * 
+ * Displays the game statistics including total games played and
+ * average guesses per game.
+ * 
+ * Parameters: None
+ * Return: None (void function)
+ * 
+ * **********************************************************************/
+function showStats() {
+  const totalGames = getCookie("games");
+  const totalGuesses = getCookie("guesses");
+  console.log(`Total Games: ${totalGames}, Total Guesses: ${totalGuesses}`);
+  const averageGuesses = totalGames
+    ? (totalGuesses / totalGames).toFixed(2)
+    : 0;
+
+  if (totalGames > 0) {
+    document.getElementById(
+      "stats"
+    ).textContent = `Average guesses per game: ${averageGuesses}`;
+  }
+}
+
 /********** Javascript to Run ******************************************
  *
  * Initializes the Wordle game by creating the grid, resetting the game,
@@ -387,6 +472,8 @@ document.addEventListener("DOMContentLoaded", () => {
   createGrid();
   createKeyboard();
   resetGame();
+
+  showStats();
 
   document
     .getElementById("submitGuess")
