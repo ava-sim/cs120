@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sim JSON 2</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    body {
+      font-family: "Rubik", sans-serif;
+      justify-self: center;
+    }
+
+    div {
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div id="output"></div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+      $.get("songs.json", function (data) {
+        const songList = data.songs;
+        let output = "<h1>My Favorite Songs</h1>";
+
+        $.each(songList, function (index, song) {
+          output += `<div><b>${song.name}</b> </br> Artist: ${song.artist} </br>
+          Genre: ${song.genre.join(", ")} </br> Released ${
+            song.year
+          }</div></br>`;
+        });
+
+        document.getElementById("output").innerHTML = output;
+      });
+    </script>
+  </body>
+</html>

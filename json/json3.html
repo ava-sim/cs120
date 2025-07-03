@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sim JSON 3</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Rubik", sans-serif;
+        text-align: center;
+      }
+      form {
+        margin: 20px auto;
+        max-width: 300px;
+        display: flex;
+      }
+      select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+      }
+      button {
+        margin-left: 20px;
+        width: 40%;
+        padding: 10px;
+        font-size: 16px;
+        background-color: navy;
+        color: white;
+        border: none;
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <select id="dropdown" name="genre">
+        <option value="" disabled selected>Choose Genre</option>
+      </select>
+      <button type="button" id="filter">Filter</button>
+    </form>
+
+    <div id="output"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+      const $dropdown = $("#dropdown");
+
+      $.get("songs.json", function (data) {
+        const songList = data.songs;
+        const genresSet = new Set();
+
+        songList.forEach((song) => {
+          song.genre.forEach((genre) => {
+            genresSet.add(genre);
+          });
+        });
+
+        genresSet.forEach((genre) => {
+          $dropdown.append(`<option value="${genre}">${genre}</option>`);
+        });
+      });
+
+      $("#filter").on("click", function () {
+        const selectedGenre = $dropdown.val();
+        let output = "";
+
+        if (!selectedGenre) {
+          output = "<p>Please select a genre first.</p>";
+          $("#output").html(output);
+          return;
+        }
+
+        $.get("songs.json", function (data) {
+          const songList = data.songs;
+          output += `<h1>My Favorite Songs in ${selectedGenre}</h1>`;
+
+          songList.forEach((song) => {
+            if (song.genre.includes(selectedGenre)) {
+              output += `<div><b>${song.name}</b><br>
+                Artist: ${song.artist}<br>
+                Genre: ${song.genre.join(", ")}<br>
+                Released: ${song.year}</div><br>`;
+            }
+          });
+
+          $("#output").html(output);
+        });
+      });
+    </script>
+  </body>
+</html>

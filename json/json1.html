@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sim JSON 1</title>
+  </head>
+  <body>
+    <pre id="output"></pre>
+
+    <script>
+      const songList = {
+        songs: [
+          {
+            name: "Family Feud",
+            artist: "FINNEAS",
+            year: 2025,
+            genre: ["Alternative", "Indie"],
+          },
+          {
+            name: "Pushing It Down and Praying",
+            artist: "Lizzie McAlpine",
+            year: 2024,
+            genre: ["Pop", "Alternative", "Indie"],
+          },
+          {
+            name: "Kill Bill",
+            artist: "SZA",
+            year: 2022,
+            genre: ["Pop", "R&B/Soul"],
+          },
+          {
+            name: "TTCL",
+            artist: "Eloise",
+            year: 2019,
+            genre: ["R&B/Soul"],
+          },
+          {
+            name: "See You Again (feat. Kali Uchis)",
+            artist: "Tyler, The Creator",
+            year: 2017,
+            genre: ["Indie", "Hip-Hop"],
+          },
+          {
+            name: "Stoked",
+            artist: "Weston Estate",
+            year: 2021,
+            genre: ["Indie", "Alternative"],
+          },
+          {
+            name: "doomsday",
+            artist: "Lizzie McAlpine",
+            year: 2022,
+            genre: ["Indie", "Folk"],
+          },
+          {
+            name: "favorite crime",
+            artist: "Olivia Rodrigo",
+            year: 2021,
+            genre: ["Pop", "Alternative"],
+          },
+          {
+            name: "Lost",
+            artist: "Frank Ocean",
+            year: 2012,
+            genre: ["R&B/Soul", "Alternative"],
+          },
+          {
+            name: "Motion Sickness",
+            artist: "Phoebe Bridgers",
+            year: 2017,
+            genre: ["Indie", "Folk", "Alternative"],
+          },
+          {
+            name: "grudge",
+            artist: "Olivia Rodrigo",
+            year: 2023,
+            genre: ["Pop"],
+          },
+          {
+            name: "What Was I Made For?",
+            artist: "Billie Eilish",
+            year: 2023,
+            genre: ["Pop", "Alternative"],
+          },
+          {
+            name: "Happier Than Ever",
+            artist: "Billie Eilish",
+            year: 2021,
+            genre: ["Alternative", "Pop", "Rock"],
+          },
+          {
+            name: "everything i wanted",
+            artist: "Billie Eilish",
+            year: 2019,
+            genre: ["Pop", "Alternative"],
+          },
+          {
+            name: "Good Days",
+            artist: "SZA",
+            year: 2020,
+            genre: ["R&B/Soul", "Alternative"],
+          },
+          {
+            name: "F2F",
+            artist: "SZA",
+            year: 2022,
+            genre: ["R&B/Soul"],
+          },
+        ],
+      };
+      const mySongList = (songList.parseJSON = JSON.stringify(
+        songList,
+        null,
+        2
+      ));
+      console.log(mySongList);
+      document.getElementById("output").textContent = mySongList;
+    </script>
+  </body>
+</html>
