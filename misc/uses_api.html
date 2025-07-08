@@ -4,31 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sim API</title>
-  </head>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Barrio&family=Open+Sans&display=swap"
-    rel="stylesheet"
-  />
-  <body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barrio&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
     <style>
       body {
         text-align: center;
+        font-family: "Open Sans", sans-serif;
       }
       h1 {
         font-family: "Barrio", cursive;
-        text-align: center;
         margin-top: 50px;
-      }
-      p {
-        font-family: "Open Sans", sans-serif;
-        text-align: center;
-        margin-top: 20px;
-      }
-      .img {
-        margin-top: 20px;
-        max-width: 500px;
-        height: 500px;
-        border-radius: 10px;
       }
       button {
         padding: 10px 20px;
@@ -37,34 +24,76 @@
         color: white;
         border: none;
         border-radius: 5px;
+        margin-top: 20px;
+      }
+      .img {
+        margin-top: 20px;
+        max-width: 500px;
+        height: 500px;
+        border-radius: 10px;
+      }
+      p {
+        margin-top: 15px;
+        font-size: 20px;
+        font-weight: bold;
       }
     </style>
+  </head>
+  <body>
     <h1>Find out what dog you are!</h1>
-    <button id="fetchImage" onclick="clicked()">Click here!</button>
+    <button onclick="getRandomDog()">Click here</button>
+    <p id="breedName"></p>
+
+    <script>
+      const breeds = [
+        "beagle",
+        "boxer",
+        "dalmatian",
+        "labrador",
+        "husky",
+        "pug",
+        "shiba",
+        "bulldog",
+        "rottweiler",
+        "doberman",
+        "germanshepherd",
+        "chihuahua",
+        "poodle",
+        "corgi",
+        "dachshund",
+        "schnauzer",
+        "shihtzu",
+        "maltese",
+      ];
+
+      const showImage = (breed, imageUrl) => {
+        const existingImg = document.querySelector("img.img");
+        if (existingImg) {
+          existingImg.remove();
+        }
+
+        const img = document.createElement("img");
+        img.src = imageUrl;
+        img.alt = "Dog Image";
+        img.className = "img";
+        document.body.appendChild(img);
+
+        document.getElementById("breedName").textContent =
+          "You are a " + breed.charAt(0).toUpperCase() + breed.slice(1) + "!";
+      };
+
+      const getRandomDog = () => {
+        const randomIndex = Math.floor(Math.random() * breeds.length);
+        const randomBreed = breeds[randomIndex];
+        const url = `https://dog.ceo/api/breed/${randomBreed}/images/random`;
+
+        fetch(url)
+          .then((res) => res.json())
+          .then((data) => {
+            showImage(randomBreed, data.message);
+          })
+          .catch((err) => console.error("Error fetching image:", err));
+      };
+    </script>
   </body>
-
-  <script>
-    let file = "https://dog.ceo/api/breeds/image/random";
-
-    show_image = (data) => {
-      const existingImg = document.querySelector("img.img");
-      if (existingImg) {
-        existingImg.remove();
-      }
-      let image = document.createElement("img");
-      image.src = data.message;
-      image.alt = "Your Dog Image";
-      image.className = "img";
-      document.body.appendChild(image);
-    };
-
-    clicked = () => {
-      fetch(file)
-        .then((response) => response.json())
-        .then((data) => {
-          show_image(data);
-        })
-        .catch((error) => console.error("Error:", error));
-    };
-  </script>
 </html>
