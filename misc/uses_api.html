@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sim API</title>
+  </head>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barrio&family=Open+Sans&display=swap"
+    rel="stylesheet"
+  />
+  <body>
+    <style>
+      body {
+        text-align: center;
+      }
+      h1 {
+        font-family: "Barrio", cursive;
+        text-align: center;
+        margin-top: 50px;
+      }
+      p {
+        font-family: "Open Sans", sans-serif;
+        text-align: center;
+        margin-top: 20px;
+      }
+      .img {
+        margin-top: 20px;
+        max-width: 500px;
+        height: 500px;
+        border-radius: 10px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+    </style>
+    <h1>Find out what dog you are!</h1>
+    <button id="fetchImage" onclick="clicked()">Click here!</button>
+  </body>
+
+  <script>
+    let file = "https://dog.ceo/api/breeds/image/random";
+
+    show_image = (data) => {
+      const existingImg = document.querySelector("img.img");
+      if (existingImg) {
+        existingImg.remove();
+      }
+      let image = document.createElement("img");
+      image.src = data.message;
+      image.alt = "Your Dog Image";
+      image.className = "img";
+      document.body.appendChild(image);
+    };
+
+    clicked = () => {
+      fetch(file)
+        .then((response) => response.json())
+        .then((data) => {
+          show_image(data);
+        })
+        .catch((error) => console.error("Error:", error));
+    };
+  </script>
+</html>
